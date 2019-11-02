@@ -226,12 +226,12 @@ figure{
 	flex-shrink: 0;
 	border-radius: 10px;
 	overflow: hidden;
-	background: #E3EAF4
+	background: #E3EAF4;
 }
 .event img{
 	width: 480px;
 	height: 200px;
-	object-fit: cover;
+	/*object-fit: cover;*/
 }
 .event-list{
 	display: flex;
@@ -398,7 +398,7 @@ figure{
     	flex-shrink: initial; /*0 a 1*/
     }
     .event img{
-    	width: 100;
+    	width: 100%;
     }
 	.menu {
         position: fixed;
@@ -411,10 +411,11 @@ figure{
         display: flex;
         align-items: center;
         justify-content: center; 
-        transition: .3s;
+        /*transition: .3s;*/
     }
     .menu.is-active {
         left: 0;
+        transition: .3s;
     }
 }
 @media screen and (max-width: 480px){

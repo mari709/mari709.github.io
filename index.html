@@ -17,7 +17,7 @@
             <figure class="logo">
                 <img src="https://i.imgur.com/h0tOGhg.png" alt="Marina Mansueto" width="25px" height="25px" />
             </figure>
-            <nav class="menu is-active">
+            <nav class="menu">
                 <ol>
                     <li>
                         <a class="link" href="#sobremi">Sobre mi</a>
@@ -89,35 +89,46 @@
         <p>Sitio Desarrollado por Marina Mansueto &hearts; 2019 </p>
     </div>
 </footer>
-<script type="text/javascript">
-   // const ipad = window.matchMedia('screen and (max-width: 767px)')
-    const menu = document.querySelector('.menu')
-    // const burgerButton = document.getElementById('burger-menu')
-    const burgerButton = document.querySelector('#burger-menu')
+<script>
+   const ipad = window.matchMedia('screen and (max-width: 767px)');
+    // console.log(window.matchMedia('screen and (max-width: 767px)'));
+    const menu = document.querySelector('.menu');
+    const burgerButton = document.querySelector('#burger-menu');
 
 
-    //ipad.addListener(validation)
+    ipad.addListener(validation);
+    setEvent(ipad.matches);
 
-    //SOLO si se cumple la condicion de MQ agrego el listener
-    // function validation(event){
-    //     if (event.matches) {
-    //         burgerButton.addEventListener('click', hideShow)
-    //     }
-    //     else{
-    //         burgerButton.removeEventListener('click', hideShow)
-    //     }
-    // }
-    burgerButton.addEventListener('click', hideShow)
+      // SOLO si se cumple la condicion de MQ agrego el listener
+    function validation(event) {
+       setEvent(event.matches);
+   }
+   validation(ipad);
 
-        function hideShow() {
-            if (menu.classList.contains('is-active')) {
-                    menu.classList.remove('is-active');
-                    menu.addEventListener('click', hideShow);
-              } else {
-                    menu.classList.add('is-active');
-                    // menu.addEventListener('click', hideShow);
-              }
-         }
+   function setEvent(active){
+        if (active) {
+            burgerButton.addEventListener('click', hideShow);
+        menu.addEventListener('click', hideMenu);
+        } else {
+            burgerButton.removeEventListener('click', hideShow);
+            menu.removeEventListener('click', hideShow);
+        }
+   }
+        function hideMenu(){
+            menu.classList.remove('is-active');
+        }
+        
+        function hideShow() 
+        {
+            if (menu.classList.contains('is-active')) 
+            {
+                menu.classList.remove('is-active');
+            } 
+            else 
+            {
+                menu.classList.add('is-active');
+            }
+        }
 </script>
 </body>
 </html>  
